@@ -44,7 +44,7 @@ const getPathCloud = (node, rbox) => {
   case 'marker':
     // Iterate trough all children and get the point cloud of each
     // Then transform it with viewbox matrix if needed
-    return node.childNodes.reduce((cloud, child) => {
+    return node.children.reduce((cloud, child) => {
       return cloud.merge(getPointCloud(child, true).transform(child.generateViewBoxMatrix()))
     }, new PointCloud())
   case 'circle':
